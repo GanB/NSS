@@ -70,3 +70,87 @@ for (const entry of journalEntries) {
     console.log(entry);
   }
 }
+
+// Intro to Data Relationship Practice
+
+console.log("--------Intro to Data Relationship Practice-------------");
+
+const states = [
+  {
+    id: 1,
+    stateCode: "IL",
+    stateName: "Illinois",
+  },
+  {
+    id: 2,
+    stateCode: "TN",
+    stateName: "Tennessee",
+  },
+  {
+    id: 3,
+    stateCode: "CA",
+    stateName: "California",
+  },
+  {
+    id: 4,
+    stateCode: "MN",
+    stateName: "Minnesota",
+  },
+  {
+    id: 5,
+    stateCode: "FL",
+    stateName: "Florida",
+  },
+];
+
+const cities = [
+  {
+    id: 1,
+    cityName: "Chicago",
+    stateId: "1",
+  },
+  {
+    id: 2,
+    cityName: "Nashville",
+    stateId: "2",
+  },
+  {
+    id: 3,
+    cityName: "Los Angeles",
+    stateId: "3",
+  },
+  {
+    id: 4,
+    cityName: "Minneapolis",
+    stateId: "4",
+  },
+  {
+    id: 5,
+    cityName: "Memphis",
+    stateId: "2",
+  },
+  {
+    id: 6,
+    cityName: "Champagne",
+    stateId: "1",
+  },
+  {
+    id: 7,
+    cityName: "San Francisco",
+    stateId: "3",
+  },
+  {
+    id: 8,
+    cityName: "Knoxville",
+    stateId: "2",
+  },
+  {
+    id: 9,
+    cityName: "Orlando",
+    stateId: "5",
+  },
+];
+
+for (const city of cities) {
+  console.log(`${city.cityName}, ${states[city.stateId].stateCode}`);
+}
