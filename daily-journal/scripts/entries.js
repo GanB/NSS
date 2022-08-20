@@ -11,7 +11,7 @@ const journalEntries = [
     date: "08/02/2022",
     concept: "Complex Flexbox",
     entry:
-      "I tried to have an element in my Flexbox layout also be another Flexbox layout. It hurt my brain. I hate Steve.",
+      "I tried to have an element in my Flexbox layout also be another Flexbox layout.",
     mood: "Excited",
   },
   {

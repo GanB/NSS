@@ -75,6 +75,7 @@ h6 {
 .entryForm__moodForTheDay__select {
   align-content: flex-start;
   min-width: 50vw;
+  border-radius: 20px;
 }
 
 .entryForm__button {
@@ -83,7 +84,7 @@ h6 {
   align-self: center;
   background-color: #010317;
   color: azure;
-  border-radius: 2rem;
+  border-radius: 20px;
   padding: 0.5rem;
   margin: 1rem;
 }
