@@ -38,72 +38,116 @@ const previousEntriesCardsContainer = createElement(
 );
 previousEntriesParentContainer.appendChild(previousEntriesCardsContainer);
 
-const previousEntriesCardItemsContainer = createElement(
-  `div`,
-  ``,
-  `previous-entries-card-items-container`,
-  ``
-);
-previousEntriesCardsContainer.appendChild(previousEntriesCardItemsContainer);
-
 const journalEntries = getJournalEntries();
 
-for (let i = 0; i < journalEntries.length; i++) {
-  const previousEntriesCardItem = createElement(
+const splitArray = (arr, n, balanced) => {
+  if (n < 2) return [arr];
+
+  var len = arr.length,
+    out = [],
+    i = 0,
+    size;
+
+  if (len % n === 0) {
+    size = Math.floor(len / n);
+    while (i < len) {
+      out.push(arr.slice(i, (i += size)));
+    }
+  } else if (balanced) {
+    while (i < len) {
+      size = Math.ceil((len - i) / n--);
+      out.push(arr.slice(i, (i += size)));
+    }
+  } else {
+    n--;
+    size = Math.floor(len / n);
+
+    if (len % size === 0) size--;
+    while (i < size * n) {
+      out.push(arr.slice(i, (i += size)));
+    }
+    out.push(arr.slice(size * n));
+  }
+
+  return out;
+};
+
+const chunckedEntries = splitArray(journalEntries, 3, false);
+// console.log(chunckedEntries);
+
+for (let i = 0; i < chunckedEntries.length; i++) {
+  // console.log(`main loop ${chunckedEntries.length}`);
+  // console.log(`main loop iter:${i} item: ${chunckedEntries[i]}`);
+
+  const previousEntriesCardItemsContainer = createElement(
     `div`,
     ``,
-    `previous-entries-card-item${i + 1}`,
+    `previous-entries-card-items-container`,
     ``
   );
-  previousEntriesCardItemsContainer.appendChild(previousEntriesCardItem);
+  previousEntriesCardsContainer.appendChild(previousEntriesCardItemsContainer);
 
-  const previousEntriesCardComponentContainer = createElement(
-    `div`,
-    ``,
-    `previous-entries-card-component-container`,
-    ``
-  );
-  previousEntriesCardItem.appendChild(previousEntriesCardComponentContainer);
+  for (let j = 0; j < chunckedEntries[i].length; j++) {
+    // console.log(chunckedEntries[i].length);
+    // console.log(chunckedEntries[i][j]);
+    // console.log(`inner loop iter: ${j} item: ${chunckedEntries[j]}`);
 
-  const previousEntriesCardComponentTitle = createElement(
-    `div`,
-    ``,
-    `previous-entries-card-component-title`,
-    `${journalEntries[i].concept}`
-  );
-  previousEntriesCardComponentContainer.appendChild(
-    previousEntriesCardComponentTitle
-  );
+    const previousEntriesCardItem = createElement(
+      `div`,
+      ``,
+      `previous-entries-card-item${j + 1}`,
+      ``
+    );
+    previousEntriesCardItemsContainer.appendChild(previousEntriesCardItem);
 
-  const previousEntriesCardComponentDate = createElement(
-    `div`,
-    ``,
-    `previous-entries-card-component-date`,
-    `${journalEntries[i].date}`
-  );
-  previousEntriesCardComponentContainer.appendChild(
-    previousEntriesCardComponentDate
-  );
+    const previousEntriesCardComponentContainer = createElement(
+      `div`,
+      ``,
+      `previous-entries-card-component-container`,
+      ``
+    );
+    previousEntriesCardItem.appendChild(previousEntriesCardComponentContainer);
 
-  const previousEntriesCardComponentMood = createElement(
-    `div`,
-    ``,
-    `previous-entries-card-component-mood`,
-    `${journalEntries[i].mood}`
-  );
-  previousEntriesCardComponentContainer.appendChild(
-    previousEntriesCardComponentMood
-  );
+    const previousEntriesCardComponentTitle = createElement(
+      `div`,
+      ``,
+      `previous-entries-card-component-title`,
+      `${chunckedEntries[i][j].concept}`
+    );
+    previousEntriesCardComponentContainer.appendChild(
+      previousEntriesCardComponentTitle
+    );
 
-  const previousEntriesCardComponentContentDetails = createElement(
-    `div`,
-    ``,
-    `previous-entries-card-component-content-details`,
-    `${journalEntries[i].entry}`
-  );
-  previousEntriesCardComponentContainer.appendChild(
-    previousEntriesCardComponentContentDetails
-  );
+    const previousEntriesCardComponentDate = createElement(
+      `div`,
+      ``,
+      `previous-entries-card-component-date`,
+      `${chunckedEntries[i][j].date}`
+    );
+    previousEntriesCardComponentContainer.appendChild(
+      previousEntriesCardComponentDate
+    );
+
+    const previousEntriesCardComponentMood = createElement(
+      `div`,
+      ``,
+      `previous-entries-card-component-mood`,
+      `${chunckedEntries[i][j].mood}`
+    );
+    previousEntriesCardComponentContainer.appendChild(
+      previousEntriesCardComponentMood
+    );
+
+    const previousEntriesCardComponentContentDetails = createElement(
+      `div`,
+      ``,
+      `previous-entries-card-component-content-details`,
+      `${chunckedEntries[i][j].entry}`
+    );
+    previousEntriesCardComponentContainer.appendChild(
+      previousEntriesCardComponentContentDetails
+    );
+  }
 }
 
 const previousEntriesSidebar = createElement(
