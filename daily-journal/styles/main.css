@@ -10,7 +10,11 @@ textarea {
   font-family: "Comfortaa", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.5;
-  background-color: #ebecfa;
+  background-color: #f0dcf7;
+  outline: 0.05rem solid #21295c;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 20px;
 }
 h1,
 h2,
@@ -120,7 +124,7 @@ h6 {
   margin: 1rem;
   padding: 0.5rem;
   outline-offset: 0.5rem;
-  outline: 0.15rem solid #21295c;
+  outline: 0.05rem solid #21295c;
   box-shadow: 0 0 0 0.1rem #c2cfd8;
   border-radius: 20px;
 }
