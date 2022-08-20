@@ -120,12 +120,12 @@ h6 {
   grid-area: main;
   background-color: #abb2f5;
   /* min-width: 75vw; */
-  min-height: fit-content;
+  /* min-height: fit-content; */
   margin: 1rem;
   padding: 0.5rem;
   outline-offset: 0.5rem;
   outline: 0.05rem solid #21295c;
-  box-shadow: 0 0 0 0.1rem #c2cfd8;
+  box-shadow: 0 0 0 0.01rem #c2cfd8;
   border-radius: 20px;
 }
 
@@ -149,6 +149,8 @@ h6 {
   margin: 5px;
   border-radius: 25% 10%;
   transition: all 1s ease;
+  justify-self: stretch;
+  align-self: center;
 }
 
 .previous-entries-card-item2 {
@@ -162,6 +164,8 @@ h6 {
   margin: 5px;
   border-radius: 25% 10%;
   transition: all 1s ease;
+  justify-self: stretch;
+  align-self: center;
 }
 
 .previous-entries-card-item3 {
@@ -175,6 +179,8 @@ h6 {
   margin: 5px;
   border-radius: 25% 10%;
   transition: all 1s ease;
+  justify-self: stretch;
+  align-self: center;
 }
 
 .previous-entries-card-item1:hover,
@@ -196,24 +202,32 @@ h6 {
   grid-area: title;
   font-weight: 900;
   font-size: larger;
+  justify-self: center;
+  align-self: center;
 }
 .previous-entries-card-component-date {
   grid-area: date;
   font-style: italic;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-weight: 700;
+  justify-self: center;
+  align-self: center;
 }
 .previous-entries-card-component-mood {
   grid-area: mood;
   font-style: italic;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-weight: 700;
+  justify-self: center;
+  align-self: center;
 }
 .previous-entries-card-component-content-details {
   grid-area: content-details;
   font-style: italic;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-weight: 500;
+  justify-self: center;
+  align-self: center;
 }
 
 .previous-entries-card-component-container {
